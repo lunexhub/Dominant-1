@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dominant Multi Projects - Tactical Authority Theme */
+    --background: 220 15% 6%;
+    --foreground: 40 20% 95%;
+
+    --card: 220 15% 10%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 40 20% 95%;
+
+    /* Tactical Olive Green */
+    --primary: 80 30% 25%;
+    --primary-foreground: 40 20% 95%;
+
+    /* Tactical Tan/Sand */
+    --secondary: 35 30% 45%;
+    --secondary-foreground: 220 15% 6%;
+
+    --muted: 220 10% 15%;
+    --muted-foreground: 40 10% 60%;
+
+    /* Gold Accent for Authority */
+    --accent: 45 80% 50%;
+    --accent-foreground: 220 15% 6%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 80 30% 25%;
+
+    --radius: 0.25rem;
+
+    /* Custom Brand Colors */
+    --camo-dark: 80 20% 15%;
+    --camo-mid: 80 25% 22%;
+    --camo-light: 75 20% 30%;
+    --tactical-tan: 35 35% 50%;
+    --gold: 45 80% 50%;
+    --charcoal: 220 15% 8%;
+    --steel: 220 10% 25%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 15% 6%) 0%, hsl(80 20% 10%) 50%, hsl(220 15% 8%) 100%);
+    --gradient-camo: linear-gradient(180deg, hsl(80 20% 15%) 0%, hsl(80 25% 22%) 33%, hsl(35 35% 35%) 66%, hsl(80 20% 18%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 80% 50%) 0%, hsl(35 70% 40%) 100%);
+
+    /* Shadows */
+    --shadow-tactical: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    --shadow-glow: 0 0 40px rgba(139, 169, 98, 0.15);
+
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 80 30% 25%;
+    --sidebar-primary-foreground: 40 20% 95%;
+    --sidebar-accent: 220 10% 15%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 10% 20%;
+    --sidebar-ring: 80 30% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .text-display {
+    font-family: 'Bebas Neue', sans-serif;
+    @apply tracking-wider;
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-camo {
+    background: var(--gradient-camo);
+  }
+
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-tactical {
+    box-shadow: var(--shadow-tactical);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .border-tactical {
+    border: 1px solid hsl(var(--camo-mid));
+  }
+
+  .camo-pattern {
+    background-image: 
+      radial-gradient(ellipse at 20% 30%, hsl(80 25% 22% / 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, hsl(35 35% 35% / 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, hsl(80 20% 18% / 0.5) 0%, transparent 60%);
+  }
+
+  .stat-border {
+    border-left: 3px solid hsl(var(--accent));
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+      text-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3);
+    }
+  }
+
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    background-size: 1000px 100%;
+  }
+}
